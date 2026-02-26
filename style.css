@@ -1,0 +1,81 @@
+:root {
+    --primary: #0052cc;
+    --success: #1b7a21;
+    --bg: #f8f9fa;
+    --text: #1a1a1a;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--bg);
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 { font-size: 2.5rem; color: var(--primary); }
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.task-btn {
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 2px solid var(--primary);
+    background: white;
+    color: var(--primary);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.task-btn:active {
+    background: var(--primary);
+    color: white;
+    transform: scale(0.98);
+}
+
+.task-item {
+    background: white;
+    border-left: 8px solid var(--success);
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.accept-btn {
+    background: var(--success);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.empty-msg {
+    color: #666;
+    font-style: italic;
+}
