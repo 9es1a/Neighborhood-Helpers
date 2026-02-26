@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeighborHelp | Community Support</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>NeighborHelp</h1>
+        <p>Connecting neighbors for a helping hand.</p>
+    </header>
+
+    <main>
+        <section id="request-section" class="card">
+            <h2>I Need Assistance</h2>
+            <p>Tap a button below to ask for help.</p>
+            <div class="button-grid">
+                <button class="task-btn" onclick="postTask('Walk my dog')">🐕 Walk Dog</button>
+                <button class="task-btn" onclick="postTask('Grocery Shopping')">🛒 Groceries</button>
+                <button class="task-btn" onclick="postTask('Reach high shelf')">🏠 Home Help</button>
+                <button class="task-btn" onclick="postTask('Yard work')">🌳 Yard Work</button>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="feed-section">
+            <h2>Available Tasks Nearby</h2>
+            <p>Help a neighbor and earn a small fee.</p>
+            <div id="task-list">
+                <p class="empty-msg">No active requests. Check back soon!</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
