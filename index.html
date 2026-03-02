@@ -3,35 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeighborHelp | Community Support</title>
+    <title>NeighborHelp | Trusted Community</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
         <h1>NeighborHelp</h1>
-        <p>Connecting neighbors for a helping hand.</p>
+        <p>Safe. Local. Simple.</p>
     </header>
 
     <main>
-        <section id="request-section" class="card">
+        <section class="card request-card">
             <h2>I Need Assistance</h2>
-            <p>Tap a button below to ask for help.</p>
+            <div class="voice-box">
+                <button id="voice-btn" class="mic-btn" onclick="startVoice()">🎙️ Tap to Speak Your Need</button>
+                <p style="text-align:center; font-weight:bold; margin: 10px 0;">Or tap a quick option:</p>
+            </div>
             <div class="button-grid">
-                <button class="task-btn" onclick="postTask('Walk my dog')">🐕 Walk Dog</button>
+                <button class="task-btn" onclick="postTask('Walk my dog')">🐕 Dog Walk</button>
                 <button class="task-btn" onclick="postTask('Grocery Shopping')">🛒 Groceries</button>
                 <button class="task-btn" onclick="postTask('Reach high shelf')">🏠 Home Help</button>
-                <button class="task-btn" onclick="postTask('Yard work')">🌳 Yard Work</button>
+                <button class="task-btn" onclick="showOther()" style="background: #eef2ff; border-color: #0052cc;">➕ Something Else</button>
+            </div>
+
+            <div id="other-input-area" style="display:none; margin-top:20px; padding-top:15px; border-top: 2px solid #eee;">
+                <h3>What do you need help with?</h3>
+                <input type="text" id="custom-task-input" placeholder="Example: Help moving a heavy rug">
+                <button class="submit-custom-btn" onclick="submitCustomTask()">Post This Need</button>
             </div>
         </section>
 
-        <hr>
+        <section class="trusted-section">
+            <h3>🌟 Trusted Neighbors Nearby</h3>
+            <div class="trusted-grid">
+                <div class="neighbor-card">
+                    <strong>Mrs. Gable</strong>
+                    <p>Maple Ave • 42 Tasks</p>
+                </div>
+                <div class="neighbor-card">
+                    <strong>John D.</strong>
+                    <p>Oak St • 28 Tasks</p>
+                </div>
+                <div class="neighbor-card">
+                    <strong>Sarah L.</strong>
+                    <p>Pine Dr • 15 Tasks</p>
+                </div>
+            </div>
+        </section>
 
         <section id="feed-section">
-            <h2>Available Tasks Nearby</h2>
-            <p>Help a neighbor and earn a small fee.</p>
+            <h2>Active Requests</h2>
             <div id="task-list">
-                <p class="empty-msg">No active requests. Check back soon!</p>
+                <p class="empty-msg">Waiting for neighbors in need...</p>
             </div>
         </section>
     </main>
