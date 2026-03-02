@@ -3,18 +3,20 @@
     --accent: #e63946; 
     --trusted: #ffd700; 
     --bg: #fdfdfd;
+    --text: #1a1a1a;
 }
 
 body { 
     font-family: 'Segoe UI', Arial, sans-serif; 
     background: var(--bg); 
     padding: 15px; 
+    color: var(--text);
     max-width: 600px;
     margin: 0 auto;
 }
 
 header { text-align: center; margin-bottom: 20px; }
-h1 { color: var(--primary); margin-bottom: 0; }
+h1 { color: var(--primary); margin-bottom: 5px; }
 
 .card {
     background: white;
@@ -23,60 +25,52 @@ h1 { color: var(--primary); margin-bottom: 0; }
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
+/* Voice Button Styling */
 .mic-btn {
     width: 100%;
-    padding: 25px;
-    font-size: 1.3rem;
+    padding: 30px;
+    font-size: 1.4rem;
     font-weight: bold;
     background: #fff;
     border: 4px dashed var(--primary);
     border-radius: 15px;
     cursor: pointer;
+    margin-bottom: 15px;
     color: var(--primary);
 }
 
-.recording { background: var(--accent) !important; color: white !important; border-style: solid; animation: pulse 1.5s infinite; }
+.recording {
+    background: var(--accent) !important;
+    color: white !important;
+    border-style: solid;
+    animation: pulse 1.5s infinite;
+}
 
 @keyframes pulse {
     0% { transform: scale(1); }
-    50% { transform: scale(0.98); }
+    50% { transform: scale(0.98); opacity: 0.8; }
     100% { transform: scale(1); }
 }
 
-.button-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-.task-btn { 
-    padding: 15px; 
-    border-radius: 10px; 
-    border: 2px solid #ddd; 
-    font-weight: bold; 
-    font-size: 1rem; 
-    cursor: pointer; 
-    background: white; 
+/* Trusted Neighbors Horizontal Scroll */
+.trusted-grid { 
+    display: flex; 
+    gap: 15px; 
+    overflow-x: auto; 
+    padding: 10px 5px; 
 }
 
-#custom-task-input {
-    width: 100%;
+.neighbor-card {
+    min-width: 160px;
+    background: white;
     padding: 15px;
-    font-size: 1.1rem;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    box-sizing: border-box;
-    margin-bottom: 10px;
+    border-radius: 12px;
+    border-top: 5px solid var(--trusted);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
-.submit-custom-btn {
-    width: 100%;
-    padding: 15px;
-    background: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    cursor: pointer;
-}
-
-.trusted-grid { display: flex; gap: 15px; overflow-x: auto; padding: 10px 5px; }
-.neighbor-card { min-width: 150px; background: white; padding: 15px; border-radius: 12px; border-top: 5px solid var(--trusted); box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
+/* Tasks and Buttons */
+.button-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+.task-btn { padding: 15px; border-radius: 10px; border: 2px solid #ddd; font-weight: bold; font-size: 1rem; cursor: pointer; background: white; }
 .task-item { background: #fff; padding: 20px; border-radius: 12px; margin-top: 10px; border-left: 10px solid var(--primary); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
