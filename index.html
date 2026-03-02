@@ -18,19 +18,13 @@
             <h2>I Need Assistance</h2>
             <div class="voice-box">
                 <button id="voice-btn" class="mic-btn" onclick="startVoice()">🎙️ Tap to Speak Your Need</button>
-                <p style="text-align:center; font-weight:bold; margin: 10px 0;">Or tap a quick option:</p>
+                <p id="status-text" style="text-align:center; font-weight:bold;">Or tap a quick option below:</p>
             </div>
             <div class="button-grid">
                 <button class="task-btn" onclick="postTask('Walk my dog')">🐕 Dog Walk</button>
                 <button class="task-btn" onclick="postTask('Grocery Shopping')">🛒 Groceries</button>
                 <button class="task-btn" onclick="postTask('Reach high shelf')">🏠 Home Help</button>
-                <button class="task-btn" onclick="showOther()" style="background: #eef2ff; border-color: #0052cc;">➕ Something Else</button>
-            </div>
-
-            <div id="other-input-area" style="display:none; margin-top:20px; padding-top:15px; border-top: 2px solid #eee;">
-                <h3>What do you need help with?</h3>
-                <input type="text" id="custom-task-input" placeholder="Example: Help moving a heavy rug">
-                <button class="submit-custom-btn" onclick="submitCustomTask()">Post This Need</button>
+                <button class="task-btn" onclick="postTask('Yard work')">🌳 Yard Work</button>
             </div>
         </section>
 
