@@ -1,3 +1,55 @@
+// 1. Setup Connection
+const _supabaseUrl = 'https://kgcxehpzwdqlojkzkduw.supabase.co';
+const _supabaseKey = 'sb_publishable_uNBXmDSOaMclU09S11o0ug_qqvZRllX';
+const supabase = supabase.createClient(_supabaseUrl, _supabaseKey);
+
+// 2. Fetch tasks from database when the page loads
+window.onload = async () => {
+    const { data, error } = await supabase
+        .from('tasks')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+    if (data) {
+        data.forEach(task => renderTaskToUI(task.task_name, task.price));
+    }
+};
+
+// 3. Update your postTask function to SAVE to database
+async function postTask(taskName) {
+    let pay = (taskName.length > 25) ? 20 : 10;
+
+    // Save to Supabase
+    const { data, error } = await supabase
+        .from('tasks')
+        .insert([{ task_name: taskName, price: pay }]);
+
+    if (error) {
+        console.error("Error saving task:", error);
+    } else {
+        renderTaskToUI(taskName, pay);
+    }
+}
+
+// 4. Move your UI drawing logic here
+function renderTaskToUI(taskName, pay) {
+    const taskList = document.getElementById('task-list');
+    const emptyMsg = document.querySelector('.empty-msg');
+    if (emptyMsg) emptyMsg.remove();
+
+    const taskItem = document.createElement('div');
+    taskItem.className = 'task-item';
+    taskItem.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div><strong>${taskName}</strong><br><small>📍 Neighbor nearby</small></div>
+            <div style="text-align:right;">
+                <span style="display:block; font-weight:bold; color:green;">$${pay}.00</span>
+                <button onclick="this.innerText='Accepted!';">Accept</button>
+            </div>
+        </div>`;
+    taskList.prepend(taskItem);
+}
+
 // --- VOICE UI ---
 function startVoice() {
     const btn = document.getElementById('voice-btn');
